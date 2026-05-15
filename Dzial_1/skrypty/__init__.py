@@ -1,0 +1,1 @@
+print("Skrypty import")
