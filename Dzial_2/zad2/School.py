@@ -8,6 +8,9 @@ class Student:
         self.age = age
         self.promoted = False
 
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} {self.age}"
+
 class School:
     def __init__(self,name,students=None):
         self.name = name
@@ -16,6 +19,9 @@ class School:
         self.students = students
         promote_lucky_students(students)
 
+    def __str__(self):
+        students = ""
+        for student in self.students:
 
 def print_student(student):
     print(f"Student: {student.first_name} {student.last_name}, promoted: {student.promoted}")
