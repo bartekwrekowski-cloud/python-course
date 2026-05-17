@@ -1,4 +1,5 @@
 import random
+from Dzial_2 import *
 
 class Student:
     def __init__(self,first_name,last_name,age):
@@ -41,9 +42,11 @@ def dodaj_studenta(szkola,student):
     szkola.students.append(student)
 
 def run_example():
-    school = stworz_szkole("Pusta szkola")
-    student_1 = Student("Jakub", "Kowalski",21)
-    dodaj_studenta(school,student_1)
+    school = stworz_szkole("Harvard")
+
+    for student in school.students:
+        student.promote()
+    school.print_something()
 
     for student in school.students:
         print_student(student)

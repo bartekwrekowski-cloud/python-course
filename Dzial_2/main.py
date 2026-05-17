@@ -1,5 +1,26 @@
 class Student:
-    pass
+    def __init__(self,first_name,last_name):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.promoted = False
+        self.final_grades = []
+
+
+    def promote(self):
+        self.promoted = True
+
+    def print_something(self):
+        print(f"Student {self.first_name} {self.last_name} is promoted: {self.promoted}")
+
+    def print_self(self):
+        print("What is self?: ", self)
+        print("Here is the acces for name: ", self.name)
+
+    def add_final_grade(self, grade):
+        self.final_grades.append(grade)
+        if grade == 1:
+            self.promoted = False
+
 
 class Grade:
     pass
@@ -7,32 +28,10 @@ class Grade:
 class  School:
     pass
 
+def run_example():
+    student = Student("Bartek")
+    student.print_something()
+
+
 if __name__ == '__main__':
-    student_Bartek = Student()
-
-    grade_a = Grade()
-    grade_f = Grade()
-
-    moja_szkola = School()
-
-    # print(moja_szkola)
-    # print(grade_a, grade_f)
-    # print(moja_szkola)
-
-    print("type(student_Bartek): ", type(student_Bartek))
-    print("type(grade_a): ", type(grade_a))
-    print("type(grade_f): ", type(grade_f))
-    print("type(moja_szkola): ", type(moja_szkola))
-
-    all_students = {Student(),Student(),Student(),Student(),Student()}
-    print(all_students)
-
-    grades = {
-        1: Grade(),
-        2: Grade(),
-        3: Grade(),
-        4: Grade(),
-        5: Grade(),
-        6: Grade(),
-    }
-    print(grades)
+    run_example()
