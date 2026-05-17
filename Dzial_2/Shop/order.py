@@ -3,24 +3,26 @@ import random
 from Shop.product import Product
 
 class Order:
-    def __init__(self, first_name,last_name, product_list = None):
+    def __init__(self, first_name,last_name, order_elements = None):
         self.first_name = first_name
         self.last_name = last_name
-        if product_list is None:
-            self.product_list = []
+        if order_elements is None:
+            self.order_elements = []
         else:
-            self.product_list = product_list
+            self.order_elements = order_elements
 
-        self.product_list = product_list if product_list is not None else []
+        self.order_elements = order_elements if order_elements is not None else []
+        self.total_price = self.calculate_total_price()
 
-        total_price = 0
-        for product in self.product_list:
-            total_price += product.price
-        self.total_price = total_price
+    def calculate_total_price(self):
+         total_price = 0
+         for product in self.order_elements:
+             total_price += product.price
+         return total_price
 
-    def show_order(self) -> None:
+    def show_order(self):
         print(f"Zamowienie zlozyl: {self.first_name} {self.last_name}, " f"łączna kwota zamówienia to {self.total_price} PLN.")
-        for product in self.product_list:
+        for product in self.order_elements:
             product.print_product()
 
 
@@ -39,6 +41,6 @@ class Order:
         order_random = cls(
             first_name="Random",
             last_name="Client",
-            product_list=products
+            order_elements=products
         )
         return order_random
